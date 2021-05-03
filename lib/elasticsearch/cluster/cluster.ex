@@ -160,7 +160,7 @@ defmodule Elasticsearch.Cluster do
         with {:ok, pid} <- GenServer.start_link(__MODULE__, config, name: __MODULE__),
              :ok <- GenServer.call(pid, :validate) do
           # Ensure that the configuration is saved
-          GenServer.call(pid, :save_config, 10_000)
+          GenServer.call(pid, :save_config, :infinity)
 
           {:ok, pid}
         else
