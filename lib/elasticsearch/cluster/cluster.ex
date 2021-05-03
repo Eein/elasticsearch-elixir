@@ -165,6 +165,7 @@ defmodule Elasticsearch.Cluster do
           {:ok, pid}
         else
           error ->
+            IO.inspect error
             GenServer.stop(__MODULE__)
             error
         end
